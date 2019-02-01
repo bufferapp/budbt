@@ -18,7 +18,9 @@ def main():
     parser.add_argument("-m", "--models", required=False, nargs="+")
     args = parser.parse_args()
 
-    dbt_command = [args.command] + ["--models"] + args.models
+    dbt_command = [args.command]
+    if args.models:
+        dbt_command = dbt_command + ["--models"] + args.models
 
     logger.info("Executing dbt " + " ".join(dbt_command))
     results, success = dbt.main.handle_and_check(dbt_command)
