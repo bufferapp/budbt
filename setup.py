@@ -7,5 +7,5 @@ setup(
     author_email="davidgasquez@buffer.com",
     install_requires=["stacklogging", "dbt"],
     license="MIT license",
-    entry_points={"console_scripts": ["budbt = budbt:main"]},
+    entry_points={"console_scripts": ["budbt=budbt:main"]},
 )
