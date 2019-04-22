@@ -35,7 +35,7 @@ def main():
         }
 
         if args.command == "run":
-            if res.errored:
+            if res.failed:
                 extra_dict["error"] = res.error
                 extra_dict["compiled"] = res.node.get("compiled_sql")
                 logger.error(f"Error compiling model {name}", extra=extra_dict)
@@ -43,7 +43,7 @@ def main():
                 logger.info(f"Model {name} completed", extra=extra_dict)
 
         if args.command == "test":
-            if res.fail:
+            if res.failed:
                 logger.error(f"Test {name} failed", extra=extra_dict)
             else:
                 logger.info(f"Test {name} passed", extra=extra_dict)
